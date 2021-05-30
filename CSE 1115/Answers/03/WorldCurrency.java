@@ -1,5 +1,6 @@
 import javax.swing.*;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class WorldCurrency extends JFrame {
     WorldCurrency(String n){
@@ -18,18 +19,19 @@ public class WorldCurrency extends JFrame {
         p.add(usd);
         JButton b = new JButton("Get USD value");
         p.add(b);
-        b.addActionListener(this);
+        b.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                usd.setText(Double.parseDouble(euro.getText()) * 1.16 + "");
+            }
+        });
         setContentPane(p);
         setVisible(true);
     }
 
-    public void actionPerformed(ActionEvent e){
-        if(e.getSource()==b){
-            usd.setText(Double.parseDouble(usd.getText())*1.16);
-        }
-    }
 
     public static void main(String[] args){
         new WorldCurrency ("Currency Converter");
     }
+
 }
