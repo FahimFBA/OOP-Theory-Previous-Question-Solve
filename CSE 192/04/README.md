@@ -1,0 +1,5 @@
+# Output
+
+```JAVA
+ Inside foo
+```
