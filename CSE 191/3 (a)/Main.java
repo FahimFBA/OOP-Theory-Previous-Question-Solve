@@ -13,14 +13,10 @@ class MyThread implements Runnable{
     }
 }
 public class Main{
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         MyThread t = new MyThread("First Thread");
         Thread t1 = new Thread(t);
         t1.start();
-        try {
-            t1.join();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        t1.join();
     }
 }
